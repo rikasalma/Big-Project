@@ -19,11 +19,18 @@ public class DashboardPage {
     @FindBy(xpath = "//div[@class='Card_Card__2LWWW']")
     private WebElement selectTeams;
 
+    @FindBy(xpath = "//div[.='QA-14-BP-A24']")
+    private WebElement selectTeams2;
+
     public String verifyDashboardPage(){
         return verifyDashboardText.getText();
     }
 
     public void selectTeams(){
         selectTeams.click();
+    }
+
+    public void selectTeams(){
+        selectTeams2.click();
     }
 }

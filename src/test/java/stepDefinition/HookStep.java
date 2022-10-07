@@ -40,7 +40,7 @@ public class HookStep {
     public void selectTheTeam() throws InterruptedException {
         DashboardPage dashboardPage = new DashboardPage(webDriver);
         Thread.sleep(4000);
-        dashboardPage.selectTeams();
+        dashboardPage.selectTeams2();
     }
 
     @Before

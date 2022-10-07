@@ -15,15 +15,13 @@ public class TeamPage {
             "--hide-scrollbars'] / h1[.='QA-14-BP-A']")
     private WebElement verifyTeamPageText;
 
-    @FindBy(xpath = "//a[@href='/companies/61eba2c85080f47b25ddc8f8/teams/632e85803c6e10177263cc42/group-chats/" +
-            "632e85803c6e10177263cc46']/div[@class='BoxMenu_container__1flgD']")
+    @FindBy(xpath = "//h1[.='Group Chat']")
     private WebElement groupChatMenu;
 
     @FindBy(xpath = "//h1[.='Blast!']")
     private WebElement blastMenu;
 
-    @FindBy(xpath = "//a[@href='/companies/61eba2c85080f47b25ddc8f8/teams/632e85803c6e10177263cc42/boards/632e85803c6e1" +
-            "0177263cc45']/div[@class='BoxMenu_container__1flgD']")
+    @FindBy(xpath = "//h1[.='Board']")
     private WebElement boardMenu;
 
     public boolean verifyTeamPage(){
