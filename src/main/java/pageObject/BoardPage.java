@@ -4,17 +4,24 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class BoardPage {
 
+    WebDriver webDriver;
+
     public BoardPage(WebDriver webDriver){
         PageFactory.initElements(webDriver, this);
+        this.webDriver = webDriver;
     }
 
     @FindBy(xpath = "//span[.='Kanban Board']")
     private WebElement verifyBoardPage;
 
-    @FindBy(xpath = "//div[@class='Button_container__1WNuB Button_flexStart__2nS1S']")
+    @FindBy(xpath = "//div[@class='Button_container__1WNuB Button_flexStart__2nS1S'][last()]")
     private WebElement addListButton;
 
     @FindBy(xpath = "//input[@placeholder='Input list name...']")
@@ -52,6 +59,8 @@ public class BoardPage {
     }
 
     public void clickAddListButton(){
+        WebDriverWait wait = new WebDriverWait (webDriver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.elementToBeClickable(addListButton));
         addListButton.click();
     }
 
@@ -64,14 +73,20 @@ public class BoardPage {
     }
 
     public String verifySuccessCreate(){
+        WebDriverWait wait = new WebDriverWait (webDriver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.visibilityOf(verifyCreateList));
         return verifyCreateList.getText();
     }
 
     public String verifyFailedCreate(){
+        WebDriverWait wait = new WebDriverWait (webDriver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.visibilityOf(verifyFailedCreate));
         return verifyFailedCreate.getText();
     }
 
     public void clickAddCardButton(){
+        WebDriverWait wait = new WebDriverWait (webDriver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.elementToBeClickable(addCardButton));
         addCardButton.click();
     }
 
@@ -80,10 +95,14 @@ public class BoardPage {
     }
 
     public void clickAddCardButton2(){
+        WebDriverWait wait = new WebDriverWait (webDriver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.elementToBeClickable(addCardButton2));
         addCardButton2.click();
     }
 
     public String verifySuccessAddCard(){
+        WebDriverWait wait = new WebDriverWait (webDriver, Duration.ofSeconds(6));
+        wait.until(ExpectedConditions.visibilityOf(verifySuccessAddCard));
         return verifySuccessAddCard.getText();
     }
 
@@ -95,7 +114,7 @@ public class BoardPage {
         cancelListButton.click();
     }
 
-    public boolean verifySuccessCancelNewList(){
-        return addListButton.isDisplayed();
+    public void verifySuccessCancelNewList(){
+        addListButton.isDisplayed();
     }
 }

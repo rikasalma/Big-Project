@@ -22,8 +22,7 @@ public class GroupChatStep {
     }
 
     @And("User type Message {string}")
-    public void typeMessage(String message) throws InterruptedException {
-        Thread.sleep(4000);
+    public void typeMessage(String message){
         groupChatPage.inputMessage(message);
     }
 
@@ -33,8 +32,7 @@ public class GroupChatStep {
     }
 
     @Then("User success send message")
-    public void successSendMessage() throws InterruptedException {
-        Thread.sleep(5000);
+    public void successSendMessage(){
         groupChatPage.verifySuccessSend();
     }
 
@@ -45,8 +43,7 @@ public class GroupChatStep {
     }
 
     @Then("User success attach file")
-    public void successAttachFile() throws InterruptedException {
-        Thread.sleep(3000);
+    public void successAttachFile(){
         groupChatPage.verifySuccessAttachFile();
     }
 
@@ -57,14 +54,12 @@ public class GroupChatStep {
     }
 
     @Then("User success delete message")
-    public void successDeleteMessage() throws InterruptedException {
-        Thread.sleep(4000);
+    public void successDeleteMessage(){
         Assert.assertEquals("Delete group chat message success", groupChatPage.verifySuccessDelete());
     }
 
     @And("User click download in the message bubble")
-    public void clickDownloadInTheMessageBubble() throws InterruptedException {
-        Thread.sleep(3000);
+    public void clickDownloadInTheMessageBubble(){
         groupChatPage.downloadFiles();
     }
 

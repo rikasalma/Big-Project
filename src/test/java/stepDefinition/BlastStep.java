@@ -1,6 +1,5 @@
 package stepDefinition;
 
-import io.cucumber.java.bs.A;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -26,8 +25,7 @@ public class BlastStep {
         blastPage.clickCreatBlastButton();
     }
     @And("User type title {string}")
-    public void typeTitle(String title) throws InterruptedException {
-        Thread.sleep(4000);
+    public void typeTitle(String title){
         blastPage.inputTitle(title);
     }
 
@@ -37,32 +35,27 @@ public class BlastStep {
     }
 
     @And("User click publish button")
-    public void clickPublishButton() throws InterruptedException {
-        Thread.sleep(4000);
+    public void clickPublishButton(){
         blastPage.clickPublishButton();
     }
 
     @Then("User success create blast")
-    public void successCreateBlast() throws InterruptedException {
-        Thread.sleep(3000);
+    public void successCreateBlast(){
         Assert.assertEquals("Create post successful",blastPage.verifyCreateBlast());
     }
 
     @Then("User failed create blast")
-    public void failedCreateBlast() throws InterruptedException {
-        Thread.sleep(3000);
+    public void failedCreateBlast(){
         Assert.assertEquals("Field parameter not complete.",blastPage.verifyCreateBlast());
     }
 
     @And("User click one of the blast")
-    public void clickOneOfTheBlast() throws InterruptedException {
-        Thread.sleep(4000);
+    public void clickOneOfTheBlast(){
        blastPage.clickBlastPost();
     }
 
     @And("User type comment {string}")
-    public void typeComment(String comment) throws InterruptedException {
-        Thread.sleep(4000);
+    public void typeComment(String comment){
         blastPage.clickCommentSection();
         blastPage.inputComment(comment);
     }
@@ -73,8 +66,7 @@ public class BlastStep {
     }
 
     @Then("User success add comment")
-    public void successAddComment() throws InterruptedException {
-        Thread.sleep(3000);
+    public void successAddComment(){
         blastPage.verifyCreateBlast();
     }
 }

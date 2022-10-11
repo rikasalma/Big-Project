@@ -1,19 +1,3 @@
 
 7
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
-X
-(src/main/java/utils/WebElementUtils.java,4\8\48482f47c304042dcc295b246ffdb6d2abf83259
-W
-'src/main/java/pageObject/BlastPage.java,3\3\334065c4f7f63d9c5c9f708fe925f6e2c6bb8540
-[
-+src/main/java/pageObject/DashboardPage.java,0\1\017ae4595d3c308210f2268190b889ca66902ea6
-[
-+src/test/java/stepDefinition/BlastStep.java,f\3\f3f5d6a471d8aa4b88e87efa308327d6fbc94007
-V
-&src/main/java/pageObject/TeamPage.java,d\0\d0f66b8129743cad1b1638e0c52044047ffa815f
-W
-'src/main/java/pageObject/BoardPage.java,0\f\0f1b85b8244fc625f1546c63a6f08799fdda3448
-[
-+src/main/java/pageObject/GroupChatPage.java,6\0\60d3d28da53dca137a9e9a036b58f7b06d2c30a7
-_
-/src/test/java/stepDefinition/GroupChatStep.java,5\0\50b856cc53b539f9da53eb52c0b5dec5b3efa8ae

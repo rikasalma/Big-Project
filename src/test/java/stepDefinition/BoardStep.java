@@ -4,7 +4,6 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.cucumber.java.en_scouse.An;
 import org.junit.Assert;
 import pageObject.BoardPage;
 import pageObject.TeamPage;
@@ -16,8 +15,7 @@ public class BoardStep {
     private final BoardPage boardPage = new BoardPage(webDriver);
 
     @Given("User already in Team page")
-    public void alreadyInTeamPage() throws InterruptedException {
-        Thread.sleep(4000);
+    public void alreadyInTeamPage(){
         teamPage.verifyTeamPage();
     }
 
@@ -28,8 +26,7 @@ public class BoardStep {
     }
 
     @And("User click Add List")
-    public void clickAddList() throws InterruptedException {
-        Thread.sleep(4000);
+    public void clickAddList(){
         boardPage.clickAddListButton();
     }
 
@@ -44,8 +41,7 @@ public class BoardStep {
     }
 
     @Then("User success create new list")
-    public void successCreateNewList() throws InterruptedException {
-        Thread.sleep(3000);
+    public void successCreateNewList(){
         Assert.assertEquals("Creating list is success",boardPage.verifySuccessCreate());
     }
 
@@ -55,14 +51,12 @@ public class BoardStep {
     }
 
     @Then("User failed create new list")
-    public void failedCreateNewList() throws InterruptedException {
-        Thread.sleep(3000);
+    public void failedCreateNewList(){
         Assert.assertEquals("List name cannot be empty", boardPage.verifyFailedCreate());
     }
 
     @And("User click add card in one of the list")
-    public void clickAddCard() throws InterruptedException {
-        Thread.sleep(3000);
+    public void clickAddCard(){
         boardPage.clickAddCardButton();
     }
 
@@ -82,20 +76,17 @@ public class BoardStep {
     }
 
     @And("User click add card button")
-    public void clickAddCardButton() throws InterruptedException {
-        Thread.sleep(3000);
+    public void clickAddCardButton(){
         boardPage.clickAddCardButton2();
     }
 
     @Then("User success add card")
-    public void successAddCard() throws InterruptedException {
-        Thread.sleep(4000);
+    public void successAddCard(){
         Assert.assertEquals("Creating card is success", boardPage.verifySuccessAddCard());
     }
 
     @Then("User failed add card")
-    public void failedAddCard() throws InterruptedException {
-        Thread.sleep(3000);
+    public void failedAddCard(){
         Assert.assertEquals("Card name cannot be empty",boardPage.verifyFailedCreate());
     }
 

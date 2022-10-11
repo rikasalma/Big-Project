@@ -5,7 +5,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -59,23 +62,31 @@ public class GroupChatPage {
     }
 
     public void inputMessage(String message){
+        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOf(typeMessage));
         typeMessage.sendKeys(message);
     }
 
     public void clickSendButton(){
+        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(sendButton));
         sendButton.click();
     }
 
-    public boolean verifySuccessSend(){
-        return textSuccessSend.isDisplayed();
+    public void verifySuccessSend(){
+        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(7));
+        wait.until(ExpectedConditions.visibilityOf(textSuccessSend));
+        textSuccessSend.isDisplayed();
     }
 
     public void attachFile (){
         attachButton.sendKeys("C:\\Users\\Rika Salma Oktaviani\\OneDrive\\Documents\\Sekolah QA\\20220901_214929.pdf");
     }
 
-    public boolean verifySuccessAttachFile(){
-        return textSuccessAttach.isDisplayed();
+    public void verifySuccessAttachFile(){
+        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.visibilityOf(textSuccessAttach));
+        textSuccessAttach.isDisplayed();
     }
 
     public void clickMenuMessageIcon() throws InterruptedException {
@@ -88,15 +99,19 @@ public class GroupChatPage {
     }
 
     public String verifySuccessDelete(){
+        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.visibilityOf(textSuccessDelete));
         return textSuccessDelete.getText();
     }
 
     public void downloadFiles(){
+        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.elementToBeClickable(downloadButton));
         downloadButton.click();
     }
 
     public void successDownloadFile(){
-        List<String> browserTabs = new ArrayList<String>(webDriver.getWindowHandles());
+        List<String> browserTabs = new ArrayList<>(webDriver.getWindowHandles());
         webDriver.switchTo().window(browserTabs .get(1));
     }
 }

@@ -4,6 +4,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class BlastPage {
 
@@ -46,8 +50,8 @@ public class BlastPage {
     @FindBy(xpath = "//button[.='Post']")
     private WebElement postButton;
 
-    public boolean verifyBlastPage(){
-        return blastText.isDisplayed();
+    public void verifyBlastPage(){
+        blastText.isDisplayed();
     }
 
     public void clickCreatBlastButton(){
@@ -55,6 +59,8 @@ public class BlastPage {
     }
 
     public void inputTitle(String title){
+        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.visibilityOf(textAreaTitle));
         textAreaTitle.sendKeys(title);
     }
 
@@ -63,18 +69,26 @@ public class BlastPage {
     }
 
     public void clickPublishButton(){
+        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.elementToBeClickable(publishButton));
         publishButton.click();
     }
 
     public String verifyCreateBlast(){
+        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.visibilityOf(textSuccessCreateBlast));
         return textSuccessCreateBlast.getText();
     }
 
     public void clickBlastPost(){
+        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.elementToBeClickable(blastPost));
         blastPost.click();
     }
 
     public void clickCommentSection(){
+        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.elementToBeClickable(commentSection));
         commentSection.click();
     }
 
