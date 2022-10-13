@@ -32,7 +32,8 @@ public class GroupChatStep {
     }
 
     @Then("User success send message")
-    public void successSendMessage(){
+    public void successSendMessage() throws InterruptedException {
+        Thread.sleep(3000);
         groupChatPage.verifySuccessSend();
     }
 
@@ -64,7 +65,8 @@ public class GroupChatStep {
     }
 
     @Then("User success download file")
-    public void successDownloadTheFile(){
+    public void successDownloadTheFile() throws InterruptedException {
+        Thread.sleep(3000);
         groupChatPage.successDownloadFile();
     }
 }

@@ -18,7 +18,7 @@ public class TeamPage {
     }
 
     @FindBy(xpath = "//div[@class='GeneralSubNavBar_title__text__3UFWr indiana-scroll-container indiana-scroll-container" +
-            "--hide-scrollbars'] / h1[.='QA-14-BP-A2']")
+            "--hide-scrollbars'] / h1[.='QA-14-BP-A']")
     private WebElement verifyTeamPageText;
 
     @FindBy(xpath = "//h1[.='Group Chat']")
@@ -31,7 +31,7 @@ public class TeamPage {
     private WebElement boardMenu;
 
     public void verifyTeamPage(){
-        WebDriverWait wait = new WebDriverWait (webDriver, Duration.ofSeconds(5));
+        WebDriverWait wait = new WebDriverWait (webDriver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOf(verifyTeamPageText));
         verifyTeamPageText.isDisplayed();
     }

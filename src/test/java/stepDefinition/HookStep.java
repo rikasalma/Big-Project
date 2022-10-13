@@ -29,7 +29,7 @@ public class HookStep {
     @And("User select the team")
     public void selectTheTeam(){
         DashboardPage dashboardPage = new DashboardPage(webDriver);
-        dashboardPage.selectTeams2();
+        dashboardPage.selectTeams();
     }
 
     @Before
@@ -44,7 +44,7 @@ public class HookStep {
         chrome_options.addArguments("user_agent=DN");
         chrome_options.addArguments("user-data-dir=C:\\Users\\Rika Salma Oktaviani\\AppData\\Local\\Google\\Chrome\\User Data");
         chrome_options.addArguments("--profile-directory=Default");
-        System.setProperty("webdriver.chrome.driver", "C:\\WebDriver 15\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:\\WebDriver106\\chromedriver.exe");
         webDriver = new ChromeDriver(chrome_options);
         webDriver.manage().window().maximize();
 

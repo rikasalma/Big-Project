@@ -62,20 +62,18 @@ public class GroupChatPage {
     }
 
     public void inputMessage(String message){
-        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.visibilityOf(typeMessage));
         typeMessage.sendKeys(message);
     }
 
     public void clickSendButton(){
-        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.elementToBeClickable(sendButton));
         sendButton.click();
     }
 
     public void verifySuccessSend(){
-        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(7));
-        wait.until(ExpectedConditions.visibilityOf(textSuccessSend));
         textSuccessSend.isDisplayed();
     }
 
@@ -105,7 +103,7 @@ public class GroupChatPage {
     }
 
     public void downloadFiles(){
-        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(5));
+        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.elementToBeClickable(downloadButton));
         downloadButton.click();
     }

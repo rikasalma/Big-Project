@@ -26,7 +26,8 @@ public class BoardStep {
     }
 
     @And("User click Add List")
-    public void clickAddList(){
+    public void clickAddList() throws InterruptedException {
+        Thread.sleep(5000);
         boardPage.clickAddListButton();
     }
 
