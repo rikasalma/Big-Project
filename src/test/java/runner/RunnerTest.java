@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
         features = {"src/test/resources/features"},
         glue={"stepDefinition"},
         plugin = {"pretty", "html:target/cucumber-report.html"},
-        tags = "@Group-Chat or @Blast-Feature"
+        tags = "@Board-Feature or @Group-Chat or @Blast-Feature"
 )
 
 public class RunnerTest {
